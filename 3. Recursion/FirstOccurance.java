@@ -5,6 +5,7 @@ public class FirstOccurance {
             return -1;
         }
         // Kaam
+        // compare with self > then look forward
         if (arr[i] == key) {
             return i;
         }
