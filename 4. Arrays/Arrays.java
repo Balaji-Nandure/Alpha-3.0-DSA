@@ -101,8 +101,35 @@ public class Arrays {
         }
     }
 
+    // Maximum subarray sum
+    // tc=o(n^3)
+    public static void maxSubarraySum(int arr[]) {
+        int currSum = 0;
+        int maxSum = arr[0];
+
+        for (int i = 0; i < arr.length; i++) {
+            int start = i;
+            for (int j = start; j < arr.length; j++) {
+                int end = j;
+                currSum = 0;
+                for (int k = start; k <= end; k++) {
+                    currSum += arr[k];
+                }
+
+                if (maxSum < currSum) {
+                    maxSum = currSum;
+                }
+            }
+        }
+
+        System.out.println("maxSum = " + maxSum);
+    }
+
+    // prefix sum approach
+
     public static void main(String[] args) {
         int numbers[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
+        int arr[] = { 1, -2, 6, -1, 3 };
         // printarray(numbers);
         // System.out.println(linearSearch(numbers, 15));
         // System.out.println(largestNum(numbers));
@@ -113,6 +140,7 @@ public class Arrays {
         // printarray(numbers);
 
         // printPairs(numbers);
-        printSubarrays(numbers);
+        // printSubarrays(numbers);
+        maxSubarraySum(arr);
     }
 }
