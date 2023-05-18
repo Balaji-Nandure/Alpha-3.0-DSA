@@ -1,8 +1,9 @@
 {
     "java.debug.settings.onBuildFailureProceed": true,
     "java.project.sourcePaths": [
+        "3. Recursion",
         "2. Bit Magic",
         "1. Pattern",
-        "3. Recursion"
+        "4. Arrays"
     ]
 }
