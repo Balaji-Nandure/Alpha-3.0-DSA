@@ -1,5 +1,3 @@
-import javax.swing.Spring;
-
 public class removeDuplicateInString {
     public static void removeDuplicate(String str, int idx, StringBuilder newStr, boolean map[]) {
         // chars form a to z only (small)
