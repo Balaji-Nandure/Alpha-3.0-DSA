@@ -72,6 +72,20 @@ public class Arrays {
 
     }
 
+    // Pairs in an array
+    // remember pair is of always 2 members
+    // tc = O(n^2)
+    public static void printPairs(int arr[]) {
+        for (int i = 0; i < arr.length; i++) {
+            int current = arr[i];
+            for (int j = i + 1; j < arr.length; j++) {
+                System.out.print("(" + current + "," + arr[j] + ")");
+            }
+            System.out.println();
+        }
+
+    }
+
     public static void main(String[] args) {
         int numbers[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
         // printarray(numbers);
@@ -80,7 +94,9 @@ public class Arrays {
         // System.out.println(smallestNum(numbers));
         // System.out.println(binarySearch(numbers, 11));
 
-        reverse(numbers);
-        printarray(numbers);
+        // reverse(numbers);
+        // printarray(numbers);
+
+        printPairs(numbers);
     }
 }
