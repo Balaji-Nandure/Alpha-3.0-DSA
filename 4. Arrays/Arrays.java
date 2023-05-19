@@ -126,7 +126,7 @@ public class Arrays {
     }
 
     // prefix sum approach
-    // tc=o(n^2)
+    // tc=o(n^2), sc=O(n)
     public static void maxSubarraySum2(int arr[]) {
         int currSum = 0;
         int maxSum = arr[0];
@@ -152,9 +152,30 @@ public class Arrays {
         System.out.println("maxSum = " + maxSum);
     }
 
+    // Most optimised
+    // Kadane's algorithm
+    // tc=o(n)
+    // wherever current sum becomes negative, make it 0.
+    // this code is not for array in which all the elements are negative
+    public static void maxSubarraySum3(int arr[]) {
+        int currSum = 0;
+        int maxSum = arr[0];
+
+        for (int i = 0; i < arr.length; i++) {
+            currSum += arr[i];
+            if (currSum < 0) {
+                currSum = 0;
+            }
+
+            maxSum = Math.max(currSum, maxSum);
+        }
+        System.out.println("maxSum = " + maxSum);
+    }
+
     public static void main(String[] args) {
         int numbers[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
         int arr[] = { 1, -2, 6, -1, 3 };
+        int arr2[] = { -2, -3, 4, -1, -2, 1, 5, -3 };
         // printarray(numbers);
         // System.out.println(linearSearch(numbers, 15));
         // System.out.println(largestNum(numbers));
@@ -167,6 +188,7 @@ public class Arrays {
         // printPairs(numbers);
         // printSubarrays(numbers);
         // maxSubarraySum(arr);
-        maxSubarraySum2(arr);
+        // maxSubarraySum2(arr);
+        maxSubarraySum3(arr2);
     }
 }
