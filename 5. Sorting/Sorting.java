@@ -43,7 +43,23 @@ public class Sorting {
     }
 
     // Insertion sort
-    // pick an element from u
+    // pick an element from unsorted part and place in the right position in sorted
+    // tc=O(n^2)
+    public static void insertionSort(int arr[]) {
+        int n = arr.length;
+        for (int i = 1; i < n; i++) {
+            int key = arr[i];
+            int j = i - 1;
+
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+
+            arr[j + 1] = key;
+        }
+
+    }
 
     public static void main(String[] args) {
         int[] arr = { 5, 4, 1, 3, 2 };
@@ -51,7 +67,10 @@ public class Sorting {
         // bubbleSort(arr);
         // printarray(arr);
 
-        selectionSort(arr);
+        // selectionSort(arr);
+        // printarray(arr);
+
+        insertionSort(arr);
         printarray(arr);
     }
 }
