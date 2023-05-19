@@ -61,8 +61,41 @@ public class Sorting {
 
     }
 
+    // counting sort
+    // tc=O(n+k)
+    // if (maxNum - minNum) is small, then we can use counting sort for
+    public static void countingSort(int arr[]) {
+        int n = arr.length;
+        int largest = arr[0];
+        // find largest element
+        for (int i = 0; i < n; i++) {
+            largest = Math.max(largest, arr[i]);
+        }
+
+        // make count array
+        int count[] = new int[largest + 1]; // largest+1 because 0 is also included
+
+        // count frequency
+        for (int i = 0; i < n; i++) {
+            // take number as index in count array
+            count[arr[i]]++;
+        }
+
+        // sorting
+        // iterate over count array
+        int j = 0;
+        for (int i = 0; i < count.length; i++) {
+            while (count[i] > 0) {
+                arr[j] = i;
+                j++;
+                count[i]--;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         int[] arr = { 5, 4, 1, 3, 2 };
+        int[] counting = { 1, 4, 1, 3, 2, 4, 3, 7 };
 
         // bubbleSort(arr);
         // printarray(arr);
@@ -70,7 +103,11 @@ public class Sorting {
         // selectionSort(arr);
         // printarray(arr);
 
-        insertionSort(arr);
-        printarray(arr);
+        // insertionSort(arr);
+        // printarray(arr);
+
+        countingSort(counting);
+        printarray(counting);
+
     }
 }
